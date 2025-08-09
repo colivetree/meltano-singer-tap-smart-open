@@ -1,0 +1,4 @@
+id,updated_at,name,amount,active
+1,2024-12-31T23:59:59Z,Alice,10.5,true
+2,2025-01-01T00:00:00Z,Bob,20.0,false
+3,2025-01-02T12:34:56Z,Charlie,30.25,true

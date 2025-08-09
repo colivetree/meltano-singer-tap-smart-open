@@ -1,0 +1,15 @@
+{
+  "streams": [
+    {
+      "name": "example",
+      "uri": "tests/data/example.csv",
+      "format": "csv",
+      "csv": { "sep": ",", "header": true },
+      "keys": ["id"],
+      "replication_method": "INCREMENTAL",
+      "replication_key": "updated_at",
+      "infer_samples": 100
+    }
+  ],
+  "state_checkpoint_interval": 2
+}

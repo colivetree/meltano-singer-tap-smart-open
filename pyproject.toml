@@ -1,0 +1,62 @@
+[tool.poetry]
+name = "tap-smart-open"
+version = "0.1.0"
+description = "Singer tap using Smart Open and fsspec for flexible file/object store ingest (CSV, JSONL, JSON arrays, Parquet) with chunking and schema inference."
+authors = ["Your Name <you@example.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{ include = "tap_smart_open" }]
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.13"
+singer-sdk = "^0.39.0"
+smart-open = "^7.0.0"
+pandas = "^2.2.2"
+pyarrow = "^16.1.0"
+fsspec = "^2024.6.0"
+s3fs = "^2024.6.0"
+gcsfs = "^2024.6.0"
+adlfs = "^2024.4.0"
+ijson = "^3.2.3"
+python-dateutil = "^2.9.0.post0"
+paramiko = "^3.4.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.2.0"
+pytest-cov = "^4.1.0"
+ruff = "^0.5.6"
+mypy = "^1.10.0"
+pre-commit = "^3.7.1"
+tox = "^4.11.0"
+types-python-dateutil = "^2.9.0.20240316"
+types-requests = "^2.31.0"
+
+[tool.poetry.scripts]
+tap-smart-open = "tap_smart_open.tap:TapSmartOpen.cli"
+
+[tool.ruff]
+line-length = 120
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E","F","W","I","UP","B","C4","SIM","PL"]
+ignore = ["E501"]
+
+[tool.ruff.format]
+quote-style = "preserve"
+
+[tool.mypy]
+python_version = "3.9"
+disallow_untyped_defs = true
+check_untyped_defs = true
+ignore_missing_imports = true
+warn_unused_ignores = true
+show_error_codes = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[build-system]
+requires = ["poetry-core>=1.6.0"]
+build-backend = "poetry.core.masonry.api"
